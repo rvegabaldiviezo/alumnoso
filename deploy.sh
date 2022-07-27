@@ -34,7 +34,7 @@ TOKEN="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"
 # git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
 cd $RUTA_INICIAL
 pwd
-git clone https://cjgonzalo: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@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git||(sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO SE PUDO INSTALAR EL TP DE SO" 1&&exit 1)
+git clone https://rvegabaldiviezo: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@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git
 
 # 3.1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
 # MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
