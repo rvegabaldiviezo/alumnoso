@@ -3,7 +3,6 @@
 RUTA_INICIAL="/home/utnso" # Ruta inicial cuando abrimos al consola
 RUTA_REPO_DEPLOY=$PWD #/home/utnso/alumnoso: Ruta a la carpeta donde nos descargamos: Scripts,Dependencias,TP
 TITULO="CobraKai" #Nombre del tp 
-RULE=""
 
 # 1) Iniciar superusuario root (para poder ejecutar todos los comandos).
 #echo "Ingrese como password: utnso"
@@ -12,14 +11,14 @@ RULE=""
 
 # 2) Instalar la Commons
 COMMONS="so-commons-library"
-cd $RUTA_REPO_DEPLOY
+cd $RUTA_INICIAL
 pwd
 rm -rf $COMMONS
 git clone "https://github.com/sisoputnfrba/${COMMONS}.git"
 sudo sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "INSTALAMOS LAS COMMONS LIBRARIES" 1
 
 # 2.1 Compilar las commons 
-cd $COMMONS
+cd $RUTA_INICIAL/$COMMONS
 sudo make uninstall
 make all
 sudo make install
