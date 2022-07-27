@@ -23,11 +23,11 @@ ENDCOLOR="\e[0m"
 case $3 in
     1)  
         # imprimirlo de color verde
-        echo -e "${GREEN}[INFO][${FECHA2}][${HORA2}] ${TEMA}: ${MENSAJE} ${ENDCOLOR}";;
+        sudo echo -e "\n${GREEN}[INFO][${FECHA2}][${HORA2}] ${TEMA}: ${MENSAJE} ${ENDCOLOR}";;
     2)
-        echo -e "${YELLOW}[WARNIG][$FECHA2][$HORA2] $TEMA: ${MENSAJE} ${ENDCOLOR}";;
+        sudo echo -e "\n${YELLOW}[WARNIG][$FECHA2][$HORA2] $TEMA: ${MENSAJE} ${ENDCOLOR}";;
     3)
-        echo -e "${RED}[ERROR][$FECHA2][$HORA2] $TEMA: ${MENSAJE} ${ENDCOLOR}";;
+        sudo echo -e "\n${RED}[ERROR][$FECHA2][$HORA2] $TEMA: ${MENSAJE} ${ENDCOLOR}";;
     *)
         echo " CASO DESCONOCIDO, CASOS ADMITIDOS: 1: INFO, 2: WARNIG, 3: ERROR";;
 esac
