@@ -4,30 +4,30 @@ RUTA_SCRIPTS=$1
 TPSO=$2
 
 # 1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
-modulo='memoria'
-cd "${RUTA_SCRIPTS}/${TPSO}/${modulo}/Debug"
+# memoria
+cd "${RUTA_SCRIPTS}/${TPSO}/memoria/Debug"
 sudo make clean
 sudo make all
 pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO ${modulo}" $RUTA_SCRIPTS
+sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO memoria" $RUTA_SCRIPTS
 
-modulo2='cpu'
-cd "${RUTA_INICIAL}/${TPSO}/${modulo2}/Debug"
+# cpu
+cd "${RUTA_INICIAL}/${TPSO}/cpu/Debug"
 sudo make clean
 sudo make all
 pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO ${modulo2}" $RUTA_SCRIPTS
+sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO cpu" $RUTA_SCRIPTS
 
-modulo3='kernel'
-cd "${RUTA_INICIAL}/${TPSO}/${modulo3}/Debug"
+# kernel
+cd "${RUTA_INICIAL}/${TPSO}/kernel/Debug"
 sudo make clean
 sudo make all
 pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO ${modulo3}" $RUTA_SCRIPTS
+sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO kernel" $RUTA_SCRIPTS
 
-modulo4='consola'
-cd "${RUTA_INICIAL}/${TPSO}/${modulo4}/Debug"
+# consola
+cd "${RUTA_INICIAL}/${TPSO}/consola/Debug"
 sudo make clean
 sudo make all
 pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO ${modulo4}" $RUTA_SCRIPTS
+sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO consola" $RUTA_SCRIPTS
