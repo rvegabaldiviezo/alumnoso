@@ -26,10 +26,11 @@ sudo sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "INSTALAMOS Y COMPILAMOS LAS COMM
 # 3) Instalar el TP
 TPSO="tp-2022-1c-CobraKai" 
 USER="rvegabaldiviezo"
-TOKEN="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"
+TOKEN="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"
 cd $RUTA_REPO_DEPLOY
 rm -rf $TPSO
-git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
+# git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
+git clone https://rvegabaldiviezo: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@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git
 
 # 3.1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
 # MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
