@@ -10,13 +10,14 @@ read password
 echo "$password"
 URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${password}"
 echo "$URL_REQUEST"
-USER_TOKEN=$(curl --location --request GET '${URL_REQUEST}')
+curl --location --request GET "${URL_REQUEST}"
+USER_TOKEN="$?"
 echo "RESPONSE: $USER_TOKEN"
 cd $RUTA_SCRIPTS
 rm -rf $TPSO
 MENSAJE="DESCARGO EL TP DE COBRAKAI"
 
-if [[ "$USER_TOKEN" != "error" ]]
+if [ $USER_TOKEN != "error" ]
 then
     git clone "https://${USER_TOKEN}@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git"
     sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "$MENSAJE"
