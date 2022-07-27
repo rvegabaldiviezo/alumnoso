@@ -10,8 +10,8 @@ read password
 echo "$password"
 URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${password}"
 echo "$URL_REQUEST"
-curl --location --request GET "${URL_REQUEST}"
-USER_TOKEN="$?"
+curl --location --request GET "${URL_REQUEST}" > response.txt
+USER_TOKEN="$(cat response.txt)"
 echo "RESPONSE: $USER_TOKEN"
 cd $RUTA_SCRIPTS
 rm -rf $TPSO
