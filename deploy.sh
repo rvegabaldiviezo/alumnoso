@@ -30,7 +30,7 @@ TOKEN="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"
 cd $RUTA_REPO_DEPLOY
 rm -rf $TPSO
 # git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
-git clone https://rvegabaldiviezo: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@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git
+git clone https://cjgonzalo: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@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git
 
 # 3.1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
 # MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
