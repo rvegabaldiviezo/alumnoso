@@ -2,7 +2,7 @@
 
 #RUTA_INICIAL="/home/utnso" # Ruta inicial cuando abrimos al consola
 RUTA_REPO_DEPLOY=$PWD #/home/utnso/alumnoso: Ruta a la carpeta donde nos descargamos: Scripts,Dependencias,TP
-TITULO="GRUPO CobraKai" #Nombre del tp 
+TITULO="CobraKai" #Nombre del tp 
 RULE=""
 
 # 1) Iniciar superusuario root (para poder ejecutar todos los comandos).
@@ -26,7 +26,7 @@ sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "INSTALAMOS Y COMPILAMOS LAS COMMONS L
 # 3) Instalar el TP
 TPSO="tp-2022-1c-CobraKai" 
 USER="rvegabaldiviezo"
-TOKEN="..."
+TOKEN="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"
 cd $RUTA_REPO_DEPLOY
 rm -rf $TPSO
 git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
