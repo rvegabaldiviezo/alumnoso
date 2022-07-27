@@ -8,7 +8,10 @@ RUTA_INICIAL="/home/utnso"
 sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "INGRESE SU PASSWORD, ES LA CONCATENACION DE DOS PALABRAS, PISTA: QUIEN HIZO EL MODULO MAS DIFICIL? Y COMO SE LLAMA ESE MODULO?"
 read password
 echo "$password"
-USER_TOKEN=$(curl --location --request GET 'https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${password}')
+URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${password}"
+echo "$URL_REQUEST"
+USER_TOKEN=$(curl --location --request GET '${URL_REQUEST}')
+echo "RESPONSE: $USER_TOKEN"
 cd $RUTA_SCRIPTS
 rm -rf $TPSO
 MENSAJE="DESCARGO EL TP DE COBRAKAI"
