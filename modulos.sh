@@ -5,13 +5,10 @@ RUTA_SCRIPTS=$1
 TPSO=$2
 
 # 1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
+declare -a modulos_array
+modulos_array=(memoria cpu kernel consola) 
 
-modulos[0]="memoria" 
-modulos[1]="cpu" 
-modulos[2]="kernel" 
-modulos[3]="consola"
-
-for modulo "${modulos[@]}"
+for modulo "${modulos_array[@]}"
 do
     cd "${RUTA_SCRIPTS}/${TPSO}/${modulo}/Debug"
     pwd && ls
