@@ -5,7 +5,7 @@ RUTA_SCRIPTS=$PWD # Ruta Absoluta donde vamos a instalar: Commons, tp, etc. Ej: 
 #RUTA_INICIAL="/home/utnso"
 
 ############### 2. PASAR A USUARIO ROOT ####################################
-sudo su
+#sudo su
 
 ############### 3. DESCARGAR Y COMPILAR LAS COMMONS ########################
 sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
@@ -14,8 +14,3 @@ sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
 sh $RUTA_SCRIPTS/tp.sh "$RUTA_SCRIPTS"
 
 ############### 5. COMENTARIOS FINALES ####################################
-
-
-sh compilarmodulos.sh
-
- #TOKEN="$(curl --location --request GET 'https://martianeconomy-eval-prod.apigee.net/accesos/token?password=gonzalomemria')"&&echo "TOKEN: $TOKEN"
