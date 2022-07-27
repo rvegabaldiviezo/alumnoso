@@ -11,6 +11,6 @@ sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "INSTALO LAS COMMONS LIBRARIES" $RUTA_
 # 2. Compilar las commons 
 cd $RUTA_SCRIPTS/$COMMONS
 sudo make uninstall
-make all
+sudo make all
 sudo make install
 sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO LAS COMMONS LIBRARIES" $RUTA_SCRIPTS

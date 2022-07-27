@@ -18,7 +18,6 @@ ENDCOLOR="\e[0m"
 
 case $1 in
     1)  
-        # imprimirlo de color verde
         sudo echo -e "${GREEN}[INFO][${FECHA2}][${HORA2}] ${TITULO_LOGS}: ${MENSAJE} ${ENDCOLOR}";;
     2)
         sudo echo -e "${YELLOW}[WARNIG][$FECHA2][$HORA2] ${TITULO_LOGS}: ${MENSAJE} ${ENDCOLOR}";;
