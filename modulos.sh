@@ -6,7 +6,10 @@ TPSO=$2
 
 # 1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
 
-modulos=("memoria" "cpu" "kernel" "consola")
+modulos[0]="memoria" 
+modulos[1]="cpu" 
+modulos[2]="kernel" 
+modulos[3]="consola"
 
 for modulo "${modulos[@]}"
 do
