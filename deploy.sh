@@ -7,6 +7,7 @@ RUTA_SCRIPTS=$PWD # Ruta Absoluta donde vamos a instalar: Commons, tp, etc. Ej: 
 sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
 
 ############### 3. DESCARGAR Y COMPILAR EL TP ##############################
-sh $RUTA_SCRIPTS/tp.sh "$RUTA_SCRIPTS"
+cd $RUTA_SCRIPTS
+./tp.sh "$RUTA_SCRIPTS"
 
 ############### 4. COMENTARIOS FINALES ####################################
