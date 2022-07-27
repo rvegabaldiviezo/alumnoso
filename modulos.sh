@@ -1,33 +1,20 @@
 #!/bin/bash
+#-*- coding: utf-8 -*-
 
 RUTA_SCRIPTS=$1
 TPSO=$2
 
 # 1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
-# memoria
-cd "${RUTA_SCRIPTS}/${TPSO}/memoria/Debug"
-sudo make clean
-sudo make all
-pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO memoria" $RUTA_SCRIPTS
 
-# cpu
-cd "${RUTA_INICIAL}/${TPSO}/cpu/Debug"
-sudo make clean
-sudo make all
-pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO cpu" $RUTA_SCRIPTS
+modulos=("memoria" "cpu" "kernel" "consola")
 
-# kernel
-cd "${RUTA_INICIAL}/${TPSO}/kernel/Debug"
-sudo make clean
-sudo make all
-pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO kernel" $RUTA_SCRIPTS
+for modulo "${modulos[@]}"
+do
+    cd "${RUTA_SCRIPTS}/${TPSO}/${modulo}/Debug"
+    pwd && ls
+    sudo make clean
+    sudo make all
+    sudo sh "${RUTA_SCRIPTS}/error.sh" "$?" "0" "COMPILO ${modulo}" $RUTA_SCRIPTS
+    ls
+done
 
-# consola
-cd "${RUTA_INICIAL}/${TPSO}/consola/Debug"
-sudo make clean
-sudo make all
-pwd
-sudo sh "$RUTA_SCRIPTS/error.sh" "$?" "0" "COMPILO consola" $RUTA_SCRIPTS
