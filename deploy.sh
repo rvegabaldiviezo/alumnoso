@@ -17,7 +17,7 @@ git clone "https://github.com/sisoputnfrba/${COMMONS}.git"
 
 # 2.1 Compilar las commons 
 cd $COMMONS
-sudo make uninstall
+#sudo make uninstall
 make all
 sudo make install
 
@@ -32,7 +32,7 @@ rm -rf $TPSO
 git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
 
 # 3.1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
-MODULOS=(memoria cpu kernel cpu)
+MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
 cd $RUTA_REPO_DEPLOY/$TPSO
 
 for modulo in "${MODULOS[@]}"
