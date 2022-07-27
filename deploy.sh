@@ -7,7 +7,7 @@ RULE=""
 
 # 1) Iniciar superusuario root (para poder ejecutar todos los comandos).
 echo "Ingrese como password: utnso"
-sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "ACTIVAMOS EL MODO ROOT (SUPER USUARIO)" 1
+sudo sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "ACTIVAMOS EL MODO ROOT (SUPER USUARIO)" 1
 
 # 2) Instalar la Commons
 COMMONS="so-commons-library"
@@ -17,30 +17,46 @@ git clone "https://github.com/sisoputnfrba/${COMMONS}.git"
 
 # 2.1 Compilar las commons 
 cd $COMMONS
-#sudo make uninstall
+sudo make uninstall
 make all
 sudo make install
 
-sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "INSTALAMOS Y COMPILAMOS LAS COMMONS LIBRARIES" 1
+sudo sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "INSTALAMOS Y COMPILAMOS LAS COMMONS LIBRARIES" 1
 
 # 3) Instalar el TP
 TPSO="tp-2022-1c-CobraKai" 
 USER="rvegabaldiviezo"
-TOKEN="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"
+TOKEN="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"
 cd $RUTA_REPO_DEPLOY
 rm -rf $TPSO
 git clone https://${USER}:${TOKEN}@github.com/sisoputnfrba/${TPSO}.git
 
 # 3.1 Compilar los modulos del TP: consola,kernel,memoria,cpu 
-MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
+# MODULOS=('memoria' 'cpu' 'kernel' 'cpu')
 cd $RUTA_REPO_DEPLOY/$TPSO
+modulo='memoria'
+cd "${modulo}/Debug"
+make clean
+make all $modulo||sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO PUDO COMPILAR EL MODULO: ${modulo}" 3
+sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "COMPILO EL MODULO: ${modulo}" 2
 
-for modulo in "${MODULOS[@]}"
-do
-    cd $modulo/Debug
-    make clean
-    make all $modulo||sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO PUDO COMPILAR EL MODULO: ${modulo}" 3
-    la
-    sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "COMPILO EL MODULO: ${modulo}" 2
-    cd $RUTA_REPO_DEPLOY/$TPSO
-done
+cd $RUTA_REPO_DEPLOY/$TPSO
+modulo='cpu'
+cd "${modulo}/Debug"
+make clean
+make all $modulo||sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO PUDO COMPILAR EL MODULO: ${modulo}" 3
+sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "COMPILO EL MODULO: ${modulo}" 2
+
+cd $RUTA_REPO_DEPLOY/$TPSO
+modulo='kernel'
+cd "${modulo}/Debug"
+make clean
+make all $modulo||sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO PUDO COMPILAR EL MODULO: ${modulo}" 3
+sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "COMPILO EL MODULO: ${modulo}" 2
+
+cd $RUTA_REPO_DEPLOY/$TPSO
+modulo='consola'
+cd "${modulo}/Debug"
+make clean
+make all $modulo||sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "NO PUDO COMPILAR EL MODULO: ${modulo}" 3
+sh ${RUTA_REPO_DEPLOY}/loggear.sh $TITULO "COMPILO EL MODULO: ${modulo}" 2
