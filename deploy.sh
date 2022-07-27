@@ -1,8 +1,21 @@
 #!/bin/bash
 
-sh commons.sh
+############### 1. VARIABLES NECESARIAS #################################### 
+RUTA_SCRIPTS=$PWD # Ruta Absoluta donde vamos a instalar: Commons, tp, etc. Ej: /home/utnso/alumnoso
+#RUTA_INICIAL="/home/utnso"
 
-sh tpso.sh
+############### 2. PASAR A USUARIO ROOT ####################################
+sudo su
+
+############### 3. DESCARGAR Y COMPILAR LAS COMMONS ########################
+sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
+
+############### 4. DESCARGAR Y COMPILAR EL TP ##############################
+sh $RUTA_SCRIPTS/tp.sh "$RUTA_SCRIPTS"
+
+############### 5. COMENTARIOS FINALES ####################################
+
 
 sh compilarmodulos.sh
 
+ #TOKEN="$(curl --location --request GET 'https://martianeconomy-eval-prod.apigee.net/accesos/token?password=gonzalomemria')"&&echo "TOKEN: $TOKEN"
