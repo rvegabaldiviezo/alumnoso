@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RUTA_SCRIPTS=$1
-TPSO="tp-2022-1c-CobraKai" 
+NAME_TP=$2
 RUTA_INICIAL="/home/utnso"
 
 # 1. Instalar el TP
@@ -14,12 +14,12 @@ curl --location --request GET "${URL_REQUEST}" > response.txt
 USER_TOKEN="$(cat response.txt)"
 echo "RESPONSE: $USER_TOKEN"
 cd $RUTA_SCRIPTS
-rm -rf $TPSO
+rm -rf $NAME_TP
 MENSAJE="DESCARGO EL TP DE COBRAKAI"
 
 if [ $USER_TOKEN != "error" ]
 then
-    git clone "https://${USER_TOKEN}@github.com/sisoputnfrba/tp-2022-1c-CobraKai.git"
+    git clone "https://${USER_TOKEN}@github.com/sisoputnfrba/${NAME_TP}.git"
     sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "$MENSAJE"
 else
     sudo sh ${RUTA_SCRIPTS}/loggear.sh 3 " NO SE PUDO: $MENSAJE"
@@ -28,4 +28,4 @@ fi
 
 # 2. Compilar los modulos
 cd $RUTA_SCRIPTS
-sudo sh "$RUTA_SCRIPTS/modulos.sh" "$RUTA_SCRIPTS" "$TPSO" 
+sudo sh "$RUTA_SCRIPTS/modulos.sh" "$RUTA_SCRIPTS" "$NAME_TP" 
