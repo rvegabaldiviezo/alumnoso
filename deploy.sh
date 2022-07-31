@@ -8,7 +8,10 @@ sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
 
 ############### 3. DESCARGAR Y COMPILAR EL TP ##############################
 NAME_TP="tp-2022-1c-CobraKai" 
-sh $RUTA_SCRIPTS/tp.sh "$RUTA_SCRIPTS" "$NAME_TP"
+cd $RUTA_SCRIPTS
+./tp.sh "$RUTA_SCRIPTS" "$NAME_TP"
+cd $RUTA_SCRIPTS/$NAME_TP&&ls -a
+
 
 
 
