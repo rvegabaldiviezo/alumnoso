@@ -28,4 +28,4 @@ fi
 
 # 2. Compilar los modulos
 cd $RUTA_SCRIPTS
-./modulos.sh "$RUTA_SCRIPTS" "$NAME_TP" 
+sudo bash ./modulos.sh "$RUTA_SCRIPTS" "$NAME_TP" 
