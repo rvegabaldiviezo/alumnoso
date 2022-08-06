@@ -8,10 +8,13 @@ RUTA_SCRIPTS=$PWD # Ruta Absoluta donde vamos a instalar: Commons, tp, etc. Ej: 
 ############### 2. DESCARGAR Y COMPILAR LAS COMMONS ########################
 sh $RUTA_SCRIPTS/commons.sh "$RUTA_SCRIPTS"
 
+############## 5. Creamos comandos utiles
+sudo bash ./run.sh
+
 ############### 3. DESCARGAR Y COMPILAR EL TP ##############################
 NAME_TP="tp-2022-1c-CobraKai" 
 cd $RUTA_SCRIPTS
-sudo bash ./tp.sh "$RUTA_SCRIPTS" "$NAME_TP" "$PASSWORD"
+sudo bash ./tp_deploy.sh "$RUTA_SCRIPTS" "$NAME_TP" "$PASSWORD"
 cd "${RUTA_SCRIPTS}/${NAME_TP}/${MODULO}"
 ls -a
 ############### 4. GENERAR ARCHIVO DE CONFIG ####################################
@@ -31,4 +34,3 @@ echo "### FIN INSTALACIONES ###"
 #echo "RESPONSE: $USER_TOKEN"
 # Creamos un archivo que tenga las IP de RED de cada modulo
 
-############## 5. Creamos comandos utiles 
