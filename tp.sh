@@ -8,7 +8,7 @@ RUTA_INICIAL="/home/utnso"
 # 1. Instalar el TP
 #sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "INGRESE LA PASSWORD?"
 #read password
-#echo "$password"
+echo "$PASSWORD_TP"
 URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${PASSWORD_TP}"
 echo "$URL_REQUEST"
 curl --location --request GET "${URL_REQUEST}" > response_token.txt
