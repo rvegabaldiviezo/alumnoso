@@ -10,6 +10,7 @@ case $COMANDO in
         ;;
     "borrar")
         sudo rm -r "/home/utnso/alumnoso"
+        cd "/home/utnso"&&ls -la
         ;;
     "compilar")
         cd  "/home/utnso/alumnoso/tp-2022-1c-CobraKai/${PARAMETRO_UNO}/Debug"
