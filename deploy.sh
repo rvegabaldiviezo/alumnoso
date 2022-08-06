@@ -18,7 +18,7 @@ ls -a
 
 # Creamos un archivo donde guardamos la ip
 SS=$(echo "$(ip route|grep enp0s3)"| cut -d ' ' -f12)&&echo $SS > ip_value.txt
-"ip_${MODULO}=$(cat ip_value.txt)" > configs.txt 
+echo "ip_${MODULO}=$(cat ip_value.txt)" > configs.txt 
 cat configs.txt
 echo "### FIN INSTALACIONES ###"
 
