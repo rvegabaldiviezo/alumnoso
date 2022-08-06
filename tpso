@@ -12,13 +12,17 @@ case $COMANDO in
         sudo rm -r "/home/utnso/alumnoso"
         cd "/home/utnso"&&ls -la
         ;;
+    "borrarscript")
+        sudo rm -r "/usr/bin/tp.sh"
+        cd "/home/utnso"&&ls -la
+        ;;
     "compilar")
         cd  "/home/utnso/alumnoso/tp-2022-1c-CobraKai/${PARAMETRO_UNO}/Debug"
         sudo make clean
         sudo make all
-        ls
+        echo "compilo: $(ls -a)"
         cd  "/home/utnso/alumnoso/tp-2022-1c-CobraKai/${PARAMETRO_UNO}"
-        ls
+        ls -la
         ;;
     *)
         echo " COMANDO DESCONOCIDO, COMANDOS ADMITIDOS: ip, borrar, compilar"
