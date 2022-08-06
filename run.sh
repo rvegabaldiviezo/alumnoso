@@ -1,10 +1,10 @@
 # Dar Permisos de Ejecucion a un script:  
 cd /home/utnso/alumnoso
-chmod a+x ./tpp
+chmod a+x ./tp
 # Copiar este comando en la carpeta de comandos
-sudo cp ./tpp /usr/bin
+sudo cp ./tp /usr/bin
 
 echo "### tp"
-cat /usr/bin/tpp
+cat /usr/bin/tp
 echo "### tp.sh"
-cat /usr/bin/tpp.sh
+cat /usr/bin/tp.sh

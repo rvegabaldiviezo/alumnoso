@@ -1,0 +1,26 @@
+COMANDO="$1"
+PARAMETRO_UNO=$2
+
+case $COMANDO in
+    "borrar")
+        sudo rm -r "/home/utnso/alumnoso"
+        cd "/home/utnso"&&ls -a
+        ;;
+    "borrarscript")
+        sudo rm -r "/usr/bin/tp"
+        cd "/home/utnso"&&ls -a
+        ;;
+    "compilar")
+        cd  "/home/utnso/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO/Debug"
+        sudo make clean
+        sudo make all
+        echo "compilo: $(ls -a)"
+        cd "/home/utnso/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO"
+        ;;
+    "info")
+        cat "/usr/bin/tp"
+        ;;
+    *)
+        echo " COMANDO DESCONOCIDO, COMANDOS ADMITIDOS: ip, borrar, borrarscript, compilar"
+        ;;
+esac
