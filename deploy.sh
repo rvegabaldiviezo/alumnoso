@@ -25,6 +25,10 @@ echo "ip_${MODULO}=$(cat ip_value.txt)" > configs.txt
 cat configs.txt
 echo "### FIN INSTALACIONES ###"
 
+echo "### MODULO: ${MODULO}  ###"
+cd "${RUTA_SCRIPTS}/${NAME_TP}/${MODULO}"
+ls -a
+
 #cat ip_value.txt 
 # Guardamos la IP en una API, asi los otros modulos pueden consumirla
 #URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/modulo?nombre=${MODULO}"
