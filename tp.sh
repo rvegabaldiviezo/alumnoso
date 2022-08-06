@@ -2,16 +2,17 @@
 
 RUTA_SCRIPTS=$1
 NAME_TP=$2
+PASSWORD_TP=$3
 RUTA_INICIAL="/home/utnso"
 
 # 1. Instalar el TP
-sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "INGRESE SU PASSWORD, ES LA CONCATENACION DE DOS PALABRAS, PISTA: QUIEN HIZO EL MODULO MAS DIFICIL? Y COMO SE LLAMA ESE MODULO?"
-read password
-echo "$password"
-URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${password}"
+#sudo sh ${RUTA_SCRIPTS}/loggear.sh 1 "INGRESE LA PASSWORD?"
+#read password
+#echo "$password"
+URL_REQUEST="https://martianeconomy-eval-prod.apigee.net/accesos/token?password=${PASSWORD_TP}"
 echo "$URL_REQUEST"
-curl --location --request GET "${URL_REQUEST}" > response.txt
-USER_TOKEN="$(cat response.txt)"
+curl --location --request GET "${URL_REQUEST}" > response_token.txt
+USER_TOKEN="$(cat response_token.txt)"
 echo "RESPONSE: $USER_TOKEN"
 cd $RUTA_SCRIPTS
 rm -rf $NAME_TP
