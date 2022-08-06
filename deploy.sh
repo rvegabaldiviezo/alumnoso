@@ -18,9 +18,9 @@ ls -a
 
 # Creamos un archivo donde guardamos la ip
 SS=$(echo "$(ip route|grep enp0s3)"| cut -d ' ' -f12)&&echo $SS > ip_value.txt
-CONFIGS="ip_${MODULO}=$(cat ip_value.txt)"
-
-echo "FIN INSTALACIONES"
+"ip_${MODULO}=$(cat ip_value.txt)" > configs.txt 
+cat configs.txt
+echo "### FIN INSTALACIONES ###"
 
 #cat ip_value.txt 
 # Guardamos la IP en una API, asi los otros modulos pueden consumirla
