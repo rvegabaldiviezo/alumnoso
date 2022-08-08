@@ -11,7 +11,7 @@ sudo su
 - Para deployar hay que copiar y pegar en la terminal el siguiente script:
 
 ```
- REPO='alumnoso'&&git clone https://github.com/rvegabaldiviezo/${REPO}.git&&cd ${REPO}&&git checkout develop&&sh deploy.sh "." "."
+ REPO='alumnoso'&&sudo rm -r ~/$REPO&&git clone https://github.com/rvegabaldiviezo/${REPO}.git&&cd ${REPO}&&git checkout develop&&sh deploy.sh "$CLAVE" "$MODULO"
 ```
 
 - Nota: Hay que completar
