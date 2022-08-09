@@ -2,23 +2,34 @@ COMANDO="$1"
 PARAMETRO_UNO=$2
 
 case $COMANDO in
-    "borrar")
-        sudo rm -r "/home/utnso/alumnoso"
-        cd "/home/utnso"&&ls -a
+    "-b") #Borrar
+        REPO='alumnoso'
+        if [ -d "$REPO" ]
+        then 
+            cd ~/alumnoso&&cd ..
+            RUTA=$(pwd)
+            sudo rm -r ~/alumnoso
+            cd $RUTA&&ls -a
+        fi
         ;;
-    "borrarscript")
-        sudo rm -r "/usr/bin/tp"
-        cd "/home/utnso"&&ls -a
+    "-bs") #borrarscript
+        sudo rm -r /usr/bin/tp
+        cd /home
+        #cd "/home/utnso"&&ls -a
         ;;
-    "compilar")
-        cd  "/home/utnso/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO/Debug"
+    "-c") #compilar
+        cd  ~/home/utnso/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO/Debug
+        echo "+++ Borrando $PARAMETRO_UNO... +++"&&ls -a
         sudo make clean
+        echo "+++ Compilando $PARAMETRO_UNO... +++"&&ls
         sudo make all
-        echo "compilo: $(ls -a)"
-        cd "/home/utnso/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO"
+        cd ~/alumnoso/tp-2022-1c-CobraKai/$PARAMETRO_UNO
         ;;
-    "info")
-        cat "/usr/bin/tp"
+    "-i") #info
+        cat /usr/bin/tp
+        ;;
+    "-e") #editar
+        sudo nano /usr/bin/tp
         ;;
     *)
         echo " COMANDO DESCONOCIDO, COMANDOS ADMITIDOS: ip, borrar, borrarscript, compilar"
